@@ -19,7 +19,11 @@ mongoose.connect(connectionString , {
 
 
 // Refresh data in subscribers collection in DB
-const refreshData = async() => {
+
+// Each time when we will run this file, every time the subscriber's data
+// will add to the database, to ensure the distince subscriber's data, first
+// we are deleting every thing and then we are adding the same data.
+const resetDB = async() => {
     try {
         // It will delete all the data form the DB for that collection
         await Subscriber.deleteMany({});
@@ -39,4 +43,4 @@ const refreshData = async() => {
     }
 };
 
-refreshData();
+resetDB();
