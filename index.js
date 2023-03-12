@@ -2,7 +2,7 @@ const express = require('express');
 const app = require('./src/routes/app');
 const mongoose = require('mongoose');
 require('dotenv').config();
-const port = process.env.PORT || 4000;
+const port = 3000;
 
 // Parser JSON bodies
 mongoose.set('strictQuery' , false);
