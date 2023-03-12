@@ -2,13 +2,9 @@ const mongoose = require('mongoose');
 const Subscriber = require('./model/subscriberSchema');
 const data = require('./data');
 require('dotenv').config();
-console.log(process.env.ATLAS_PASSWORD);
-console.log(process.env.ATLAS_USERNAME);
 
 // CONNECTION TO DATABASE
 const connectionString = `mongodb+srv://${process.env.ATLAS_USERNAME}:${process.env.ATLAS_PASSWORD}@cluster0.q23poih.mongodb.net/?retryWrites=true&w=majority`;
-console.log(connectionString);
-
 
 // mongoose.connect will return a promise,so
 // we are using .then() for resolve & .catch() for error
@@ -24,7 +20,7 @@ mongoose.connect(connectionString , {
 const refreshData = async() => {
     try {
         // It will delete all the data form the DB for that collection
-        await Subscriber.deleteMany({},{wtimeout : 30000});
+        await Subscriber.deleteMany({});
         console.log('Deleted all Subscribers');
 
         // It will add the new subscribers from the data.js file
