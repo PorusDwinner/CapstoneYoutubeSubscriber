@@ -4,6 +4,8 @@ const data = require('./data');
 require('dotenv').config();
 
 // CONNECTION TO DATABASE
+// Set connectionString = mongodb://localhost/subscribers to run locally
+// Now we are connecting to mongoDB Atlas
 const connectionString = `mongodb+srv://${process.env.ATLAS_USERNAME}:${process.env.ATLAS_PASSWORD}@cluster0.q23poih.mongodb.net/?retryWrites=true&w=majority`;
 
 // mongoose.connect will return a promise,so
